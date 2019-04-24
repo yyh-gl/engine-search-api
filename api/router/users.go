@@ -1,7 +1,7 @@
 package router
 
 import (
-	"fmt"
+	"github.com/yyh-gl/engine-search-api/api/handler/users"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -9,11 +9,6 @@ import (
 
 func UsersRouter() http.Handler {
 	r := chi.NewRouter()
-	r.Get("/", hogeHundler)
+	r.Get("/", users.Index)
 	return r
-}
-
-func hogeHundler(w http.ResponseWriter, r *http.Request) {
-	hoge := "test"
-	w.Write([]byte(fmt.Sprintf("title:%s", hoge)))
 }
